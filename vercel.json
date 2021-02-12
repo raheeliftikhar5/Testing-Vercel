@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
       {
-          "src": "./sm_worker/index.js",
-          "use": "@vercel/node"
+        "src": "/",
+        "use": "@vercel/node"
       }
   ],
   "routes": [
       {
-          "src": "/(.*)",
-          "dest": "/sm_worker"
+        "src": "/(.*)",
+        "dest": "sm_worker/index.js"
       }
   ]
 }
