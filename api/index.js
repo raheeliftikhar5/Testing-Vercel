@@ -59,7 +59,7 @@ app.get('*', (req, resp) => {
 
 })
 
-// app.listen(port, () => console.log(`Crawler listening on port ${port}`));
+app.listen(port, () => console.log(`Crawler listening on port ${port}`));
 
 function isSocialMediaUserAgent(ua) {
   ua = ua.toLowerCase();
@@ -128,5 +128,3 @@ function logError(error) {
   }
   console.log(errorLog);
 }
-
-module.exports = app;
