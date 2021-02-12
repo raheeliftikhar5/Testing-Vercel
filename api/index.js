@@ -22,14 +22,14 @@ var userAgent;
 
 console.log('running server');
 
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static('../'));
 
 app.use((req, resp, next) => {
   userAgent = req.headers['user-agent'];
   if (isSocialMediaUserAgent(userAgent)) {
     next()
   } else {
-    resp.sendFile(path.join(__dirname, '../dist/index.html'));
+    resp.sendFile('../index.html');
   }
 })
 
@@ -58,7 +58,7 @@ app.get('*', (req, resp) => {
 
 })
 
-// app.listen(port, () => console.log(`Crawler listening on port ${port}`));
+app.listen(port, () => console.log(`Crawler listening on port ${port}`));
 
 function isSocialMediaUserAgent(ua) {
   ua = ua.toLowerCase();
@@ -127,5 +127,3 @@ function logError(error) {
   }
   console.log(errorLog);
 }
-
-module.exports = app;
