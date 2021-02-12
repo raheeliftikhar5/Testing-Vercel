@@ -29,7 +29,7 @@ app.use((req, resp, next) => {
   if (isSocialMediaUserAgent(userAgent)) {
     next()
   } else {
-    resp.sendFile(__dirname + '../index.html');
+    resp.sendFile(path.join(__dirname, '../index.html'));
   }
 })
 
