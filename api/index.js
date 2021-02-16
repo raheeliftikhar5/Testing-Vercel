@@ -22,15 +22,15 @@ var userAgent;
 
 console.log('running server');
 
-app.use(express.static(path.join(__dirname, '../')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use((req, resp, next) => {
   userAgent = req.headers['user-agent'];
   if (isSocialMediaUserAgent(userAgent)) {
     next()
   } else {
-    console.log(path.join(__dirname, '../index.html'));
-    resp.sendFile(path.join(__dirname, '../index.html'));
+    console.log(path.join(__dirname, '../dist/index.html'));
+    resp.sendFile(path.join(__dirname, '../dist/index.html'));
   }
 })
 
